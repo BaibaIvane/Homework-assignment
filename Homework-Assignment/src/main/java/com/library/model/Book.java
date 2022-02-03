@@ -1,13 +1,15 @@
 package com.library.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@EqualsAndHashCode
 public class Book {
-    private int id;
+    private Long id;
     private String title;
     private String author;
-    private String description;
+    private String book_description;
 }

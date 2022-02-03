@@ -2,23 +2,25 @@ package com.library.controller;
 
 import com.library.model.Book;
 import com.library.service.BookCollectionService;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
-@AllArgsConstructor
+@RestController
 public class BookCollectionController {
 
-    private final BookCollectionService service;
+    BookCollectionService service;
 
-    @GetMapping("/admin/orders")
-    public String getBookList(Model model) {
-        List<Book> allBooks = service.getBookList();
-        model.addAttribute("Book", allBooks);
-        return "cms/book-collection";
+    @Autowired
+    public BookCollectionController(BookCollectionService service) {
+        this.service = service;
+    }
+
+    @GetMapping("/getBookCollection")
+    public List<Book> getMessage() {
+        List<Book> listOfBooks = service.getAllBooks();
+        return listOfBooks;
     }
 }
