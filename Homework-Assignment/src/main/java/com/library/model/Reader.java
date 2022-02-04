@@ -7,11 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode
-public class Book {
+public class Reader {
     private Long id;
-    private String title;
-    private String author;
-    private String bookDescription;
-
-    private String bookStatus;
+    private String firstName;
+    private String lastName;
+    private String readingStatus;
 }
