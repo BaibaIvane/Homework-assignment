@@ -1,7 +1,6 @@
 package com.library.mapper;
 
 import com.library.model.Book;
-import com.library.model.Reader;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -24,5 +23,11 @@ public interface BookMapper {
 
     @Update(UPDATE_BOOK_STATUS)
     void updateBookStatus(Long id, String bookStatus);
+
+    @Options(useGeneratedKeys = true,
+            keyProperty = "id",
+            keyColumn = "id")
+    @Insert(ADD_BOOK)
+    void addBook(Book book);
 
 }

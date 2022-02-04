@@ -18,8 +18,12 @@ public final class LibraryManagementSql {
 
     public static final String UPDATE_READER_STATUS = "UPDATE readers SET reading_status = #{readingStatus} where id = #{id}";
 
+    public static final String ADD_BOOK = "INSERT INTO books(id, title, author, book_description)\n" +
+            "VALUES\n" +
+            "(#{id}, #{title}, #{author}, #{bookDescription})";
 
-
-
+    public static final String ADD_READER = "INSERT INTO readers(id, first_name, last_name)\n" +
+            "VALUES\n" +
+            "(#{id}, #{firstName}, #{lastName})";
 
 }

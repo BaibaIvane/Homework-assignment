@@ -33,4 +33,12 @@ public class BookController {
         bookService.delete(id);
     }
 
+    @PostMapping("/library/book/add")
+    public Book addBook(@RequestBody Book book) {
+        Book newBook = getSpecificBook(book.getId());
+        List<Book> allBooks = getAllBooks();
+        allBooks.add(newBook);
+        return bookService.insertBook(book);
+    }
+
 }

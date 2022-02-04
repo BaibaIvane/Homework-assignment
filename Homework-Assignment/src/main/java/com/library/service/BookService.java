@@ -31,4 +31,18 @@ public class BookService {
         return mapper.getBookTitle(id);
     }
 
+    public Book addBook(Book newBook) {
+        Book book = new Book();
+        book.setId(newBook.getId());
+        book.setTitle(newBook.getTitle());
+        book.setAuthor(newBook.getAuthor());
+        book.setBookDescription(newBook.getBookDescription());
+        book.setBookStatus(newBook.getBookStatus());
+        return book;
+    }
+
+    public Book insertBook(Book book) {
+        mapper.addBook(book);
+        return book;
+    }
 }

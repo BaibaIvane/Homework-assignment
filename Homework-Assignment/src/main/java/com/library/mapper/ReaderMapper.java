@@ -1,9 +1,8 @@
 package com.library.mapper;
 
+import com.library.model.Book;
 import com.library.model.Reader;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -20,5 +19,11 @@ public interface ReaderMapper {
 
     @Update(UPDATE_READER_STATUS)
     void updateReaderStatus(Reader reader);
+
+    @Options(useGeneratedKeys = true,
+            keyProperty = "id",
+            keyColumn = "id")
+    @Insert(ADD_READER)
+    void addReader(Reader reader);
 
 }
